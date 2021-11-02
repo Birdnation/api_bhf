@@ -35,6 +35,7 @@ Route::group([
 
         //ruta para logout (api/v1/logout)
        Route::get('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
+       //ruta para obtener el usuario (api/v1/user)
        Route::get('user', [\App\Http\Controllers\AuthController::class, 'user']);
 
         /**
