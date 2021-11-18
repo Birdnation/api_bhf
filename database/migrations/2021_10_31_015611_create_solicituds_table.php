@@ -19,7 +19,8 @@ class CreateSolicitudsTable extends Migration
             $table->string('rut_benef');
             $table->string('carrera_benef');
             $table->enum('type_benef',['nuevo', 'antiguo']);
-
+            $table->enum('tipo_estamento',['academico','no academico','ex funcionario','excepcion especial'])->nullable();
+            $table->enum('estado_curricular',['matriculado', 'no matriculado'])->nullable();
             //estado 0:recepcionado, 1:Visualizado 2:Aprobado, 3:Rechazado 4:pendiente 5:sin estado
             $table->tinyInteger('status_dpe')->default(0);
             $table->tinyInteger('status_cobranza')->default(5);

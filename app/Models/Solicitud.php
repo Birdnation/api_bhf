@@ -30,6 +30,8 @@ class Solicitud extends Model
         'comentario_dge',
         'user_id',
         'periodo_id',
+        'tipo_estamento',
+        'estado_curricular'
     ];
 
     public function user()

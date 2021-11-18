@@ -46,14 +46,21 @@ Route::group([
        ], function (){
            //ruta para creacion de solicitud (api/v1/solicitud/create)
            Route::post('create', [\App\Http\Controllers\SolicitudController::class, 'create']);
+           Route::post('create-especial', [\App\Http\Controllers\SolicitudController::class, 'createEspecial']);
+           Route::get('show', [\App\Http\Controllers\SolicitudController::class,'showSolicitudAuth']);
+           Route::get('show/{id}', [\App\Http\Controllers\SolicitudController::class,'getSolicitud']);
+           Route::get('show-all-dpe', [\App\Http\Controllers\SolicitudController::class,'getAllSolicitudDPE']);
+           Route::post('cambiar-estado-dpe/{id}', [\App\Http\Controllers\SolicitudController::class, 'cambiarEstadoDPE']);
+       });
+
+        /**
+         * Rutas con autorizacion para periodos
+         */
+       Route::group([
+           'prefix' => 'periodo'
+       ], function () {
+           //ruta para retornar todos los periodos en el sistema (api/v1/periodo/periodos)
+           Route::get('periodos', [\App\Http\Controllers\PeriodoController::class, 'getPeriodos']);
        });
     });
 });
-
-
-//rutas api/v1 group (
-    //ruta login /oauth/token
-    //ruta para ver usuario logeado (GET) ->rol, token /user
-    //ruta creacion de solicitud funcionario (POST) /solicitud-funcionario
-    //ruta creacion de solicitud DPE (POST) /solicitud-dpe
-//)

@@ -54,6 +54,11 @@ class User extends Authenticatable
 
     public function solicitudes()
     {
-        return $this->hasMany(Solicitud::class);
+        return $this->hasMany(Solicitud::class)->with("periodo");
+    }
+
+    public function solicitudesPendientesDPE()
+    {
+        return $this->hasMany(Solicitud::class)->where('status_dpe',"<>", 2)->with("periodo");
     }
 }
